@@ -30,12 +30,13 @@ const TodoList: FC<TTodoListProps> = ({ todos, setTodos }) => {
   };
   return (
     <TodoListWrapper>
-      <div>
+      <div role="list">
         {todos.map((todo) => (
           <TodoListItem
             completed={todo.completed}
             onClick={() => updateTask(todo.id)}
             key={todo.id}
+            role="listitem"
           >
             {todo.task}
           </TodoListItem>

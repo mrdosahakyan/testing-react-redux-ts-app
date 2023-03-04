@@ -1,7 +1,8 @@
 import React, { FC } from "react";
 import { Row } from "antd";
+import { Link } from "react-router-dom";
 
-type TTodoFooterProps = {
+export type TTodoFooterProps = {
   numberOfIncompleteTasks: number;
 };
 
@@ -12,7 +13,7 @@ const TodoFooter: FC<TTodoFooterProps> = ({ numberOfIncompleteTasks }) => {
         {numberOfIncompleteTasks}{" "}
         {numberOfIncompleteTasks === 1 ? "task" : "tasks"} left
       </p>
-      <span>Followers</span>
+      <Link to={'/followers'} >Followers</Link >
     </Row>
   );
 };
