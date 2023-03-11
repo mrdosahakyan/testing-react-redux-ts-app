@@ -1,7 +1,8 @@
 import React, { FC } from "react";
+import Container from "../../../../app/components/Container/Container";
 import { TTodoUi } from "../../../../data/types/Todo.type";
 import TodoFooter from "../TodoFooter/TodoFooter";
-import { TodoListItem, TodoListWrapper } from "./TodoList.style";
+import { TodoListItem } from "./TodoList.style";
 
 type TTodoListProps = {
   todos: TTodoUi[];
@@ -29,7 +30,7 @@ const TodoList: FC<TTodoListProps> = ({ todos, setTodos }) => {
     return count;
   };
   return (
-    <TodoListWrapper>
+    <Container>
       <div role="list">
         {todos.map((todo) => (
           <TodoListItem
@@ -43,7 +44,7 @@ const TodoList: FC<TTodoListProps> = ({ todos, setTodos }) => {
         ))}
       </div>
       <TodoFooter numberOfIncompleteTasks={calcNumberOfIncompletedTasks()} />
-    </TodoListWrapper>
+    </Container>
   );
 };
 
