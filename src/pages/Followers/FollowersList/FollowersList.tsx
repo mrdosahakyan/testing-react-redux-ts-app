@@ -5,22 +5,21 @@ import Container from "../../../components/Container/Container";
 
 const FollowersList = () => {
   const { data } = useGetFollowersQuery();
+console.log({data});
 
   return (
     <Container>
-      {(data?.results || []).map((follower: any) => {
+      {(data || []).map((follower) => {
         return (
           <Row gutter={[16, 16]} align="middle">
             <Col>
-              <Image width={60} height={60} src={follower.picture.large} />
+              <Image width={60} height={60} src={follower.picture} />
             </Col>
             <Col>
-              <Typography.Title level={5}>
-                {follower.name.first} {follower.name.last}
-              </Typography.Title>
+              <Typography.Title level={5}>{follower.fullName}</Typography.Title>
 
               <Typography.Paragraph strong italic>
-                {follower.login.username}
+                {follower.userName}
               </Typography.Paragraph>
             </Col>
           </Row>
