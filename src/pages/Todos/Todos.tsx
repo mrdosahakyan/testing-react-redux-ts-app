@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Header from "../../app/components/Header/Header";
+import Header from "../../components/Header/Header";
 import { TTodoUi } from "../../data/types/Todo.type";
 import AddInput from "./components/AddInput/AddInput";
 import TodoList from "./components/TodoList/TodoList";

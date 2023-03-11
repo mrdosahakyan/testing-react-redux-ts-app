@@ -1,5 +1,5 @@
-import React, { FC } from "react";
-import Container from "../../../../app/components/Container/Container";
+import React, { FC } from "react"; 
+import Container from "../../../../components/Container/Container";
 import { TTodoUi } from "../../../../data/types/Todo.type";
 import TodoFooter from "../TodoFooter/TodoFooter";
 import { TodoListItem } from "./TodoList.style";
