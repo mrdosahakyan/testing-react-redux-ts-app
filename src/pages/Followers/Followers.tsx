@@ -1,12 +1,14 @@
 import React from "react";
 import Header from "../../components/Header/Header";
-import { useGetFollowersQuery } from "../../redux/apiSlices/followers.slice";
+import FollowersList from "./FollowersList/FollowersList";
 
 const Followers = () => {
-  const { data } = useGetFollowersQuery();
-  console.log({ data });
-
-  return <Header title="Followers" />;
+  return (
+    <>
+      <Header title="Followers" />
+      <FollowersList />
+    </>
+  );
 };
 
 export default Followers;
