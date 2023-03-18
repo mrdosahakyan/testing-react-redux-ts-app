@@ -29,7 +29,7 @@ const AddInput: FC<TAddInputProps> = ({ setTodos }) => {
           onChange={(e) => setTodo(e.target.value)}
           placeholder="Add a new task here..."
         />
-        <Button role='button' onClick={addTodo} type="primary">
+        <Button role="button" onClick={addTodo} type="primary">
           Add
         </Button>
       </Input.Group>

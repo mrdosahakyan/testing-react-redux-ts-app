@@ -5,13 +5,17 @@ import Container from "../../../components/Container/Container";
 
 const FollowersList = () => {
   const { data } = useGetFollowersQuery();
-console.log({data});
 
   return (
     <Container>
-      {(data || []).map((follower) => {
+      {(data || []).map((follower, index) => {
         return (
-          <Row gutter={[16, 16]} align="middle">
+          <Row
+            key={index}
+            role="contentinfo"
+            gutter={[16, 16]}
+            align="middle"
+          >
             <Col>
               <Image width={60} height={60} src={follower.picture} />
             </Col>
