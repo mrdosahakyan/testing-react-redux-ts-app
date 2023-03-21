@@ -27,7 +27,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "coverage": "react-scripts test --watchAll=false --coverage && .\\coverage\\lcov-report\\index.html"
   },
   "eslintConfig": {
     "extends": [
@@ -46,5 +47,22 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "./src/components/**/*.{ts,tsx}",
+      "./src/pages/**/*.{ts,tsx}",
+      "!src/components/**/*.{types,type,style,styles,test,data}.{ts,tsx}",
+      "!src/components/**/*.{types,type,style,styles,test,data}.{ts,tsx}",
+      "!src/pages/**/*.{types,type,style,styles,test,data}.{ts,tsx}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": -10
+      }
+    }
   }
 }
