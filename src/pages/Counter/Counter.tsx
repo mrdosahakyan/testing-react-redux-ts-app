@@ -20,7 +20,7 @@ const Counter = () => {
       <Header title="Counter" />
       <Container>
         <Col style={{ margin: "auto" }}>
-          <Typography.Title>{count.value}</Typography.Title>
+          <Typography.Title data-testid='counter-text'>{count.value}</Typography.Title>
           <Button onClick={onIncrement}>+</Button>
           <Button onClick={onDecrement}>-</Button>
         </Col>

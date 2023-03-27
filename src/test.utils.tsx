@@ -1,21 +1,46 @@
-import React, { ReactElement } from "react";
-import { render, RenderOptions } from "@testing-library/react";
+import React, { ReactElement, ReactNode } from "react";
+import { render as rtlRender, RenderOptions } from "@testing-library/react";
+import { configureStore, EnhancedStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import { store } from "./redux/store";
 import { BrowserRouter } from "react-router-dom";
+import { rootReducer, RootState } from "./redux/store";
+import { followersApi } from "./redux/apiSlices/followers.slice";
 
-const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <Provider store={store}>
-      <BrowserRouter>{children}</BrowserRouter>
-    </Provider>
-  );
-};
-
-const customRender = (
+type RenderUI = (
   ui: ReactElement,
-  options?: Omit<RenderOptions, "wrapper">
-) => render(ui, { wrapper: AllTheProviders, ...options });
+  options?: Omit<RenderOptions, "queries">
+) => ReturnType<typeof rtlRender>;
 
+interface CustomRenderOptions {
+  preloadedState?: RootState;
+  store?: EnhancedStore<RootState>;
+}
+
+function render(
+  ui: ReactElement,
+  {
+    preloadedState,
+    store = configureStore({
+      reducer: rootReducer,
+      preloadedState,
+      middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(followersApi.middleware),
+    }),
+    ...renderOptions
+  }: CustomRenderOptions & Omit<RenderOptions, "queries"> = {}
+): ReturnType<typeof rtlRender> {
+  function Wrapper({ children }: { children?: ReactNode }) {
+    return (
+      <Provider store={store}>
+        <BrowserRouter>{children}</BrowserRouter>
+      </Provider>
+    );
+  }
+  return rtlRender(ui, { wrapper: Wrapper, ...renderOptions });
+}
+
+// re-export everything
 export * from "@testing-library/react";
-export { customRender as render };
+
+// override render method
+export { render };
