@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { rootReducer, RootState } from "./redux/store";
 import { followersApi } from "./redux/apiSlices/followers.slice";
 import './test/mocks/jestGlobalMocks'
+import { setupListeners } from "@reduxjs/toolkit/dist/query";
 
 type RenderUI = (
   ui: ReactElement,
@@ -30,6 +31,7 @@ function render(
     ...renderOptions
   }: CustomRenderOptions & Omit<RenderOptions, "queries"> = {}
 ): ReturnType<typeof rtlRender> {
+  setupListeners(store.dispatch)
   function Wrapper({ children }: { children?: ReactNode }) {
     return (
       <Provider store={store}>

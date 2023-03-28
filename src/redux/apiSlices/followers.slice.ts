@@ -2,7 +2,7 @@ import { fetchBaseQuery } from "@reduxjs/toolkit/query";
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { TFollower, TFollowerUi } from "../../data/types/Followers.type";
 
-const FOLLOWERS_URL = "https://randomuser.me/api/?results=5";
+export const FOLLOWERS_URL = "https://randomuser.me/api/?results=5";
 
 export const followersApi = createApi({
   reducerPath: "followersApi",
