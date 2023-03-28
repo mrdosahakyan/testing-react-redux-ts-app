@@ -1,7 +1,6 @@
 import React from "react";
 import { render, screen } from "../../test.utils";
 import Counter from "./Counter";
-import "../../test/mocks/jestGlobalMocks";
 import userEvent from "@testing-library/user-event";
 
 describe("Counter", () => {

@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { rootReducer, RootState } from "./redux/store";
 import { followersApi } from "./redux/apiSlices/followers.slice";
+import './test/mocks/jestGlobalMocks'
 
 type RenderUI = (
   ui: ReactElement,
