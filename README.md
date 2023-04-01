@@ -18,6 +18,8 @@
 
 - Common mistakes with React Testing Library` [Kent C. Dodds](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library).
 
+- How to test custom React hooks` [Kent C. Dodds](https://kentcdodds.com/blog/how-to-test-custom-react-hooks).
+
 ### Conclusion
 
 [All in one slide](https://drive.google.com/file/d/1aHS4j4Vqm_RCm1r-s1XXywNF1B0ndqfr/view?usp=share_link)
